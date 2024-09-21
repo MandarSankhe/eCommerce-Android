@@ -14,6 +14,7 @@ public interface CartDAO {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public void addProduct(CartDB cart);
+
     @Query("UPDATE Cart SET quantity=:quantity WHERE user=:user AND productId=:productId")
     public void updateQuantity(int quantity, String user, int productId);
     @Query("SELECT * FROM Cart")
